@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Remove Blink Animation",
   "version": "1.1",
-  "description": "Removes blink animation from elements with class 'miga'",
+  "description": "Removes blink animation from elements with class 'miga', adds dark mode",
   "icons": {
     "16": "icons/NOTU.png",
     "32": "icons/NOTU.png",
@@ -12,12 +12,13 @@
   "permissions": [
     "activeTab"
   ],
-  "content_scripts": [
-    {
-      "matches": ["<all_urls>"],
-      "js": ["animationRemove.js"]
-    }
-  ],
+"content_scripts": [
+  {
+    "matches": ["https://e-university.tu-sofia.bg/ETUS/studenti/"],
+    "js": ["index.js"]
+  }
+],
+
   "browser_specific_settings": {
     "gecko": {
       "id":"{f70c7341-b3ea-42c5-9ea7-0eff57ddf070}",
