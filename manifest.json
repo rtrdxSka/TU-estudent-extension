@@ -12,12 +12,13 @@
   "permissions": [
     "activeTab"
   ],
-  "content_scripts": [
-    {
-      "matches": ["<all_urls>"],
-      "js": ["animationRemove.js"]
-    }
-  ],
+"content_scripts": [
+  {
+    "matches": ["https://e-university.tu-sofia.bg/ETUS/studenti/"],
+    "js": ["animationRemove.js"]
+  }
+],
+
   "browser_specific_settings": {
     "gecko": {
       "id":"{f70c7341-b3ea-42c5-9ea7-0eff57ddf070}",
