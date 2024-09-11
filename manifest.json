@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "Remove Blink Animation",
+  "version": "1.1",
+  "description": "Removes blink animation from elements with class 'miga'",
+  "icons": {
+    "16": "icons/NOTU.png",
+    "32": "icons/NOTU.png",
+    "48": "icons/NOTU.png",
+    "128": "icons/NOTU.png"
+  },
+  "permissions": [
+    "activeTab"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["animationRemove.js"]
+    }
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id":"{f70c7341-b3ea-42c5-9ea7-0eff57ddf070}",
+      "strict_min_version": "79.0"
+    },
+    "gecko_android": {
+      "strict_min_version": "79.0"
+    }
+  }
+}
