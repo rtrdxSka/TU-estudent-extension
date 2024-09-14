@@ -6,6 +6,16 @@ function removeBlinkAnimation() {
   }
 }
 
+const changeImage = () => {
+    let image = document.querySelector(
+        'img[src="https://e-university.tu-sofia.bg/ETUS/Tu-sofia-logo.png"]'
+    )
+    if (!image)
+        image = document.querySelector('img[src="../Tu-sofia-logo.png"]')
+
+    image.src = 'https://usob.tu-sofia.bg/img/TUSlogosimple.png'
+}
+
 const darkMode = () => {
   document.body.style.fontFamily = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";'
   document.body.style.backgroundColor = '#282c34';
