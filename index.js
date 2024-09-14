@@ -297,8 +297,6 @@ const styleTables = () => {
             table.style.margin = '20px auto' // Center the table
             table.style.borderRadius = '15px' // Rounded corners
             table.style.overflow = 'hidden'
-            table.style.background = 'rgba(255, 255, 255, 0.1)' // Slight frosted glass effect
-            table.style.backdropFilter = 'blur(10px)' // Frosted glass blur
             table.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.1)'
 
             // Style the table rows and cells
