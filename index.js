@@ -22,6 +22,18 @@ const darkMode = () => {
     document.body.style.backgroundColor = '#282c34'
     document.body.style.color = '#ffffff'
 
+    // Apply dark mode styles to the mobile menu
+    const mobileMenu = document.getElementById('mob_menu')
+    mobileMenu.style.color = '#e0e0e0'
+    mobileMenu.style.backgroundColor = '#282c34'
+    mobileMenu.style.border = '2px solid #ccc'
+
+    // Apply dark mode styles to the mobile menu toggle
+    const mobileToggle = document.getElementById('menu_znak')
+    mobileToggle.style.border = '2px solid #ccc'
+    mobileToggle.style.width = '40px'
+    mobileToggle.style.color = '#ccc'
+
     // Apply styles to all links
     const links = document.querySelectorAll('a, u')
     links.forEach((link) => {
@@ -203,11 +215,54 @@ const darkMode = () => {
     })
 }
 
+const styleTabs = () => {
+    // Select the div element that contains the links
+    const deskDiv = document.getElementById('desk')
+
+    // Convert the childNodes into an array and iterate
+    Array.from(deskDiv.childNodes).forEach((node) => {
+        // Check if the node is a text node
+        if (node.nodeType === Node.TEXT_NODE) {
+            // Remove square brackets and trim extra spaces
+            node.textContent = node.textContent.replace(/\[|\]/g, '').trim()
+        }
+    })
+
+    // Select all <u> elements with the specific inline style (or just target all <u> if needed)
+    const links = document.querySelectorAll(
+        'u[style*="cursor: pointer; color: rgb(96, 175, 240);"]'
+    )
+
+    // Apply CSS styles using JavaScript
+    links.forEach((link) => {
+        link.style.display = 'inline-block'
+        link.style.padding = '10px 20px'
+        link.style.margin = '5px'
+        link.style.borderRadius = '10px'
+        link.style.backgroundColor = '#151619' // Dark blue background
+        link.style.color = '#ffffff' // White text
+        link.style.textDecoration = 'none'
+        link.style.transition =
+            'background-color 0.3s ease, transform 0.3s ease' // Smooth hover effect
+
+        // Add hover effect
+        link.onmouseover = () => {
+            link.style.backgroundColor = '#23252a' // Lighter shade on hover
+            link.style.transform = 'scale(1.05)' // Slight scale-up on hover
+        }
+
+        link.onmouseout = () => {
+            link.style.backgroundColor = '#151619' // Revert background color
+            link.style.transform = 'scale(1)' // Revert scale
+        }
+    })
+}
+
 // Run the function when the page loads
 removeBlinkAnimation()
 darkMode()
 changeImage()
-
+styleTabs()
 document.addEventListener('DOMContentLoaded', () => {
     // Function definitions
 
@@ -216,6 +271,7 @@ document.addEventListener('DOMContentLoaded', () => {
         removeBlinkAnimation()
         darkMode()
         changeImage()
+        styleTabs()
     })
 
     // Start observing changes to the body and its subtree
