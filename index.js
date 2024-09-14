@@ -39,6 +39,23 @@ const darkMode = () => {
     }
 
     const checks = document.querySelectorAll('img[src="passed.gif"]')
+    const crosses = document.querySelectorAll('img[src="failed.gif"]')
+
+    if (checks && checks.length > 0) {
+        //TODO: the link should be replaced after merge in the big repo
+        checks.forEach((check) => {
+            check.src =
+                'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Eo_circle_green_checkmark.svg/1200px-Eo_circle_green_checkmark.svg.png'
+            check.style.width = '24px'
+        })
+    }
+    if (crosses && crosses.length > 0) {
+        crosses.forEach((cross) => {
+            cross.src =
+                'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Flat_cross_icon.svg/768px-Flat_cross_icon.svg.png'
+            cross.style.width = '24px'
+        })
+    }
 
     // Apply styles to all links
     const links = document.querySelectorAll('a, u')
