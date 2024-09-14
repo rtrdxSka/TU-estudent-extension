@@ -24,15 +24,21 @@ const darkMode = () => {
 
     // Apply dark mode styles to the mobile menu
     const mobileMenu = document.getElementById('mob_menu')
-    mobileMenu.style.color = '#e0e0e0'
-    mobileMenu.style.backgroundColor = '#282c34'
-    mobileMenu.style.border = '2px solid #ccc'
+    if (mobileMenu) {
+        mobileMenu.style.color = '#e0e0e0'
+        mobileMenu.style.backgroundColor = '#282c34'
+        mobileMenu.style.border = '2px solid #ccc'
+    }
 
     // Apply dark mode styles to the mobile menu toggle
     const mobileToggle = document.getElementById('menu_znak')
-    mobileToggle.style.border = '2px solid #ccc'
-    mobileToggle.style.width = '40px'
-    mobileToggle.style.color = '#ccc'
+    if (mobileToggle) {
+        mobileToggle.style.border = '2px solid #ccc'
+        mobileToggle.style.width = '40px'
+        mobileToggle.style.color = '#ccc'
+    }
+
+    const checks = document.querySelectorAll('img[src="passed.gif"]')
 
     // Apply styles to all links
     const links = document.querySelectorAll('a, u')
@@ -258,11 +264,52 @@ const styleTabs = () => {
     })
 }
 
+const styleTables = () => {
+    // Select all table elements on the page
+    const tables = document.querySelectorAll('table')
+
+    // Apply styles only to tables not inside a <center> element
+    tables.forEach((table) => {
+        // Check if the direct parent of the table is a <center> element
+        if (table.parentElement.tagName.toLowerCase() !== 'center') {
+            // Style the table
+            table.style.borderCollapse = 'separate'
+            table.style.borderSpacing = '0'
+            table.style.width = '100%'
+            table.style.maxWidth = '90%'
+            table.style.margin = '20px auto' // Center the table
+            table.style.borderRadius = '15px' // Rounded corners
+            table.style.overflow = 'hidden'
+            table.style.background = 'rgba(255, 255, 255, 0.1)' // Slight frosted glass effect
+            table.style.backdropFilter = 'blur(10px)' // Frosted glass blur
+            table.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.1)'
+
+            // Style the table rows and cells
+            table.querySelectorAll('td, th').forEach((cell) => {
+                cell.style.padding = '15px' // Cell padding
+                cell.style.fontSize = '1.2em' // Bigger font size
+                cell.style.color = '#fff' // White text
+            })
+
+            // Add hover effect on rows (optional)
+            table.querySelectorAll('tr').forEach((row) => {
+                row.onmouseover = () => {
+                    row.style.backgroundColor = 'rgba(255, 255, 255, 0.2)' // Lighten background on hover
+                }
+                row.onmouseout = () => {
+                    row.style.backgroundColor = 'transparent' // Revert background on hover out
+                }
+            })
+        }
+    })
+}
+
 // Run the function when the page loads
 removeBlinkAnimation()
 darkMode()
 changeImage()
 styleTabs()
+styleTables()
 document.addEventListener('DOMContentLoaded', () => {
     // Function definitions
 
@@ -272,6 +319,7 @@ document.addEventListener('DOMContentLoaded', () => {
         darkMode()
         changeImage()
         styleTabs()
+        styleTables()
     })
 
     // Start observing changes to the body and its subtree
